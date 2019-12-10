@@ -3,7 +3,12 @@
   .subnav {
     background-color: $light;
     .gs-container {
-      border-color: $black;
+      border-left-color: $light;
+      border-right-color: $light;
+      border-top-color: $black;
+      @include mq(tablet) {
+        border-color: $black;
+      }
     }
   }
   .js-footer__email-container {

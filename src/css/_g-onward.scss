@@ -1,0 +1,49 @@
+section#series {
+  border-top: 1px solid $black;
+  @include mq(tablet) {
+    border-top: 0;
+    padding-bottom: 0;
+  }
+// &:before {
+  //   content: '';
+  //   position: absolute;
+  //   display: block;
+  //   top: 0;
+  //   left: -10px;
+  //   right: -10px;
+  //   height: 1px;
+  //   background-color: $black;
+  // }
+  .fc-container__header__description {
+    font-size: 14px;
+    line-height: 18px;
+    font-family: "Guardian Text Egyptian Web",Georgia,serif;
+    display: none;
+  }
+  // .fc-container__header__title:after {
+  //   background-color: $black;
+  // }
+  .fc-container__header__title:after,
+  .fc-container__title__text:after {
+    display: none;
+  }
+  &.fc-container .fc-container__inner {
+    border-top-color: $light;
+    @include mq(tablet) {
+      border: 1px solid $black;
+      border-bottom: 0;
+      padding-bottom: 12px;
+      margin-bottom: 0;
+      width: 698px;
+    }
+    @include mq(desktop) {
+      width: 938px;
+    }
+    @include mq(leftCol) {
+      width: 1098px;
+    }
+    @include mq(wide) {
+      width: 1258px;
+    }
+  }
+}

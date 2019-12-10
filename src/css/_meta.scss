@@ -1,4 +1,36 @@
 .methodology {
+
+  .badge--alt {
+    border-top: 0;
+    position: relative;
+    margin-bottom: 9px;
+    @include mq(leftCol) {
+      padding-bottom: 24px;
+      margin-bottom: 6px;
+    }
+    .badge__label {
+      color: $black;
+      font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 500;
+    }
+    & > .badge__help {
+      color: $black;
+    }
+    &:after {
+      @include mq(tablet) {
+        right: 0;
+      }
+      @include mq(leftCol) {
+        width: 170px;
+      }
+      @include mq(leftCol) {
+        width: 240px;
+      }
+    }
+  }
+
   .share {
     @include mq(leftCol) {
       width: 145px;
@@ -17,23 +49,8 @@
       }
     }
   }
-  .meta__extras {
-    border: 0;
-    padding-top: 18px;
-    padding-bottom: 9px;
-    max-width: 620px;
-    @include mq(leftCol) {
-      padding-right: 0;
-    }
-    &:before {
-      display: block;
-      position: absolute;
-      top: 2px;
-      content: 'Share this project';
-      font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-      font-size: 14px;
-      line-height: 18px;
-    }
+  .meta__extras,
+  .badge--alt {
     &:after {
       content: '';
       position: absolute;
@@ -46,6 +63,29 @@
         left: -20px;
         right: -20px;
       }
+    }
+  }
+  .meta__extras {
+    border: 0;
+    padding-top: 18px;
+    padding-bottom: 9px;
+    max-width: 620px;
+    @include mq(leftCol) {
+      padding-right: 0;
+    }
+    @include mq(wide) {
+      padding-right: 10px;
+    }
+    &:before {
+      display: block;
+      position: absolute;
+      top: 2px;
+      content: 'Share this project';
+      font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    &:after {
       @include mq(tablet) {
         right: -100px;
       }
