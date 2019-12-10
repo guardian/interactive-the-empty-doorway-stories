@@ -1,0 +1,81 @@
+.tribute {
+
+  .tribute__heading .name,
+  .tribute__heading .location,
+  .tribute__heading .image,
+  .tribute__story,
+  .more__expand-toggle {
+    transition: all ease-out 700ms;
+  }
+
+  &[data-status="in"] {
+    .tribute__heading .name,
+    .tribute__heading .location,
+    .tribute__heading .image,
+    .tribute__story,
+    .more__expand-toggle {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &[data-status="above"] {
+    .tribute__heading .name {
+      transform: translateY(-10px);
+    }
+
+    .tribute__heading .location {
+      transform: translateY(-15px);
+    }
+
+    .tribute__heading .image {
+      transform: translateY(-5px);
+    }
+
+    .tribute__story {
+      transform: translateY(-20px);
+    }
+
+    .more__expand-toggle {
+      transform: translateY(-25px);
+    }
+
+    .tribute__heading .name,
+    .tribute__heading .location,
+    .tribute__heading .image,
+    .tribute__story,
+    .more__expand-toggle {
+      opacity: 0;
+    }
+  }
+
+  &[data-status="below"] {
+    .tribute__heading .name {
+      transform: translateY(50px);
+    }
+
+    .tribute__heading .location {
+      transform: translateY(80px);
+    }
+
+    .tribute__heading .image {
+      transform: translateY(10px);
+    }
+
+    .tribute__story {
+      transform: translateY(40px);
+    }
+
+    .more__expand-toggle {
+      transform: translateY(50px);
+    }
+
+    .tribute__heading .name,
+    .tribute__heading .location,
+    .tribute__heading .image,
+    .tribute__story,
+    .more__expand-toggle {
+      opacity: 0;
+    }
+  }
+}
