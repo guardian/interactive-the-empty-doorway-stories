@@ -14,15 +14,17 @@ function buildTributes(tributes) {
     let newTribute = document.createElement('div');
     newTribute.classList.add('tribute');
     newTribute.dataset.region = stringToHTMLClass(t.Region);
-    newTribute.innerHTML = "<div class='tribute__heading'><div class='name box'>" + t.Name + "</div><div class='location box'>" + t.Location + "</div></div>"
 
+    let tributePhotoHTML = '';
     if (t.Photo == '') {
       let bgX = Math.floor(Math.random() * 1000) + 1;
       let bgY = Math.floor(Math.random() * 1000) + 1;
-      newTribute.innerHTML += "<div class='tribute__image' data-style='generic' style='background-position:" + bgX + "px " + bgY + "px;'></div>";
+      tributePhotoHTML = "<div class='image' data-style='generic' style='background-position:" + bgX + "px " + bgY + "px;'></div>";
     } else {
-      newTribute.innerHTML += "<div class='tribute__image' data-style='" + stringToHTMLClass(t.PhotoSize) + "'><div class='tribute__image__img'><img src='" + t.Photo + "'></div></div>";
+      tributePhotoHTML = "<div class='image' data-style='" + stringToHTMLClass(t.PhotoSize) + "'><div class='image__img'><img src='" + t.Photo + "'></div></div>";
     }
+
+    newTribute.innerHTML = "<div class='tribute__heading'><div class='name box'>" + t.Name + "</div><div class='location box'>" + t.Location + "</div>" + tributePhotoHTML + "</div>"
 
     newTribute.innerHTML += "<div class='tribute__story box'><div class='intro'><p>" + t.Intro + "</p></div><div class='more'><div class='more__inner'><p>" + t.More.replace(/\n/g, '</p><p>') + "</p></div>"
       + (t.PhotoCredit != '' ? "<div class='more__image-credit'>Photo by " + t.PhotoCredit + "</div>" : "")
