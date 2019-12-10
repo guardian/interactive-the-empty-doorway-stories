@@ -1,0 +1,18 @@
+body.ios,
+body.android {
+  .header__copy__standfirst {
+    margin-top: -28px;
+  }
+  .methodology .badge--alt {
+    margin-top: 12px;
+  }
+  .methodology .badge--alt>.badge__help {
+    font-size: 12px;
+    display: block;
+    width: 120px;
+  }
+  .methodology .meta__extras,
+  section#series {
+    display: none !important;
+  }
+}

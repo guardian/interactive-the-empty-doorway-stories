@@ -73,6 +73,7 @@
       padding: 9px 15px;
       margin-left: -5px;
       margin-top: -9px;
+      margin-bottom: 0;
       max-width: 480px;
       @include mq(desktop) {
         width: 820px;

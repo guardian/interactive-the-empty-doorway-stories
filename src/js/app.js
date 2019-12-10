@@ -181,12 +181,12 @@ function buildTributes(tributes) {
     newTribute.dataset.region = stringToHTMLClass(t.Region);
 
     let tributePhotoHTML = '';
-    if (t.Photo == '') {
+    if (t.PhotoSize.toLowerCase() == 'pattern') {
       let bgX = Math.floor(Math.random() * 1000) + 1;
       let bgY = Math.floor(Math.random() * 1000) + 1;
-      tributePhotoHTML = "<div class='image' data-style='generic' style='background-position:" + bgX + "px " + bgY + "px;'></div>";
+      tributePhotoHTML = "<div class='image' data-style='pattern' style='background-position:" + bgX + "px " + bgY + "px;'></div>";
     } else {
-      tributePhotoHTML = "<div class='image' data-style='" + stringToHTMLClass(t.PhotoSize) + "'><div class='image__img'><img src='" + t.Photo + "'></div></div>";
+      tributePhotoHTML = "<div class='image' data-style='" + stringToHTMLClass(t.PhotoSize.toLowerCase()) + "'><div class='image__img'><img src='" + t.Photo + "'></div></div>";
     }
 
     newTribute.innerHTML = "<div class='tribute__heading'><div class='name box'>" + t.Name + "</div><div class='location box'>" + t.Location + "</div>" + tributePhotoHTML + "</div>"
