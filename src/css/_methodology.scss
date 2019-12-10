@@ -1,0 +1,71 @@
+.methodology {
+  .text {
+    padding-top: 16px;
+    padding-bottom: 24px;
+    max-width: 620px;
+
+    @include mq(tablet) {
+      padding-bottom: 32px;
+    }
+    @include mq(leftCol) {
+      margin-left: 160px;
+    }
+    @include mq(wide) {
+      margin-left: 240px;
+    }
+  }
+
+
+
+  // Lines
+  .one-line {
+    display: none;
+    @include mq(tablet) {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: $black;
+    }
+  }
+
+  .four-lines {
+    margin: 0 -10px;
+    @include mq(mobileLandscape) {
+      margin: 0 -20px;
+    }
+    @include mq(leftCol) {
+      margin-right: 0;
+    }
+    div {
+      display: block;
+      height: 1px;
+      margin-bottom: 3px;
+      background-color: $black;
+    }
+  }
+
+  .base-col {
+    position: relative;
+    &:before,
+    &:after {
+      @include mq(tablet) {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: $black;
+      }
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+  }
+}
+

@@ -1,0 +1,67 @@
+.methodology {
+  .share {
+    @include mq(leftCol) {
+      width: 145px;
+      position: absolute;
+      .meta__extras {
+        margin-left: -5px;
+        &:before {
+          left: 2px;
+        }
+      }
+    }
+    @include mq(wide) {
+      width: 220px;
+      .meta__extras {
+        margin-left: 0;
+      }
+    }
+  }
+  .meta__extras {
+    border: 0;
+    padding-top: 18px;
+    padding-bottom: 9px;
+    max-width: 620px;
+    @include mq(leftCol) {
+      padding-right: 0;
+    }
+    &:before {
+      display: block;
+      position: absolute;
+      top: 2px;
+      content: 'Share this project';
+      font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -10px;
+      right: -10px;
+      height: 1px;
+      background-color: $black;
+      @include mq(mobileLandscape) {
+        left: -20px;
+        right: -20px;
+      }
+      @include mq(tablet) {
+        right: -100px;
+      }
+      @include mq(tablet) {
+        right: -340px;
+      }
+      @include mq(leftCol) {
+        display: none;
+      }
+    }
+    .social-icon {
+      background-color: transparent;
+      border: 1px solid $black;
+      svg {
+        fill: $black;
+      }
+    }
+  }
+}

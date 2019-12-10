@@ -1,1 +1,85 @@
 // js code here
+
+loadJSON("https://interactive.guim.co.uk/docsdata-test/1oyBV1VukfZ9X5lnN8wQloEmlYox4TkJNUSMmAqVh1jw.json", function (data) {
+
+  buildRegions(data.sheets.Regions);
+  buildTributes(data.sheets.Submissions);
+
+});
+
+
+function buildTributes(tributes) {
+  let tributesWrapper = document.querySelector('.tributes__wrapper');
+  tributes.forEach(function (t) {
+    let newTribute = document.createElement('div');
+    newTribute.classList.add('tribute');
+    newTribute.dataset.region = stringToHTMLClass(t.Region);
+    newTribute.innerHTML = "<div class='tribute__heading'><div class='name box'>" + t.Name + "</div><div class='location box'>" + t.Location + "</div></div>"
+
+    if (t.Photo == '') {
+      let bgX = Math.floor(Math.random() * 1000) + 1;
+      let bgY = Math.floor(Math.random() * 1000) + 1;
+      newTribute.innerHTML += "<div class='tribute__image' data-style='generic' style='background-position:" + bgX + "px " + bgY + "px;'></div>";
+    } else {
+      newTribute.innerHTML += "<div class='tribute__image' data-style='" + stringToHTMLClass(t.PhotoSize) + "'><div class='tribute__image__img'><img src='" + t.Photo + "'></div></div>";
+    }
+
+    newTribute.innerHTML += "<div class='tribute__story box'><div class='intro'><p>" + t.Intro + "</p></div><div class='more'><div class='more__inner'><p>" + t.More.replace(/\n/g, '</p><p>') + "</p></div>"
+      + (t.PhotoCredit != '' ? "<div class='more__image-credit'>Photo by " + t.PhotoCredit + "</div>" : "")
+      + "<div class='more__submitter'>" + t.Submitter + "</div></div><div class='more__expand-toggle'><span class='open'><i></i>Read more</span><span class='close'><i></i>Close</span></div></div>"
+
+    tributesWrapper.appendChild(newTribute);
+
+    assignClickHandlers(newTribute);
+  });
+}
+
+function assignClickHandlers(tribute) {
+  tributeButton = tribute.querySelector('.more__expand-toggle');
+  tributeButton.addEventListener('click', function () {
+    tribute.classList.toggle('expanded');
+  })
+}
+
+
+function buildRegions(regions) {
+  let regionsWrapper = document.querySelector('.article-nav__regions');
+  regions.forEach(function (r) {
+    let newRegion = document.createElement('div');
+    newRegion.classList.add('article-nav__regions__region');
+    newRegion.dataset.region = stringToHTMLClass(r.Region);
+    newRegion.innerText = r.Region;
+    regionsWrapper.appendChild(newRegion);
+  });
+  regionsWrapper.querySelector('.article-nav__regions__region').classList.add('active');
+}
+
+function stringToHTMLClass(n) {
+  return n.replace(/\s+/g, '-').toLowerCase();
+}
+
+function loadJSON(path, success, error) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        if (success)
+          success(JSON.parse(xhr.responseText));
+      } else {
+        if (error) {
+          error(xhr);
+        }
+      }
+    }
+  };
+  xhr.open("GET", path, true);
+  xhr.send();
+}
+
+function jsonUrl() {
+  if (window.location.hostname == 'preview.gutools.co.uk') {
+    return 'https://interactive.guim.co.uk/docsdata-test/1oyBV1VukfZ9X5lnN8wQloEmlYox4TkJNUSMmAqVh1jw.json';
+  } else {
+    return 'https://interactive.guim.co.uk/docsdata/1oyBV1VukfZ9X5lnN8wQloEmlYox4TkJNUSMmAqVh1jw.json'
+  }
+}

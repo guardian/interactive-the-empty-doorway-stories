@@ -1,0 +1,25 @@
+body {
+  background-color: #FFF4F2;
+}
+
+.base-col {
+  padding: 0 10px;
+  @include mq(mobileLandscape) {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  @include mq(tablet) {
+    width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  @include mq(desktop) {
+    width: 940px;
+  }
+  @include mq(leftCol) {
+    width: 1100px;
+  }
+  @include mq(wide) {
+    width: 1260px;
+  }
+}

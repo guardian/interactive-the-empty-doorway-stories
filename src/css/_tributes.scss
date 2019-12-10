@@ -1,0 +1,36 @@
+.tributes {
+
+  .four-lines {
+    margin: 0 -10px;
+    @include mq(mobileLandscape) {
+      margin: 0 -20px;
+    }
+    div {
+      display: block;
+      height: 1px;
+      margin-bottom: 3px;
+      background-color: $black;
+    }
+  }
+
+  .base-col {
+    position: relative;
+    &:before,
+    &:after {
+      @include mq(tablet) {
+        content: '';
+        position: absolute;
+        top: 0px;
+        bottom: -64px;
+        width: 1px;
+        background-color: $black;
+      }
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+  }
+}

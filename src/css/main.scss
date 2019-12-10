@@ -7,7 +7,23 @@
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
 
+// Palette
+$light: #FFF4F2;
+$red: #C70000;
+$black: #121212;
+
+// Article
+@import "base";
+@import "header";
+@import "article-nav";
+@import "tributes";
+@import "tribute";
+@import "methodology";
+@import "social";
+@import "g-footer";
+
 .element-atom,
 .interactive-atom {
     margin: 0 !important;
 }
+

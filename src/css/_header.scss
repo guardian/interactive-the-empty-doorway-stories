@@ -1,0 +1,117 @@
+
+.header {
+  position: relative;
+  font-family: "Guardian Headline", "Guardian Egyptian Web", Georgia,serif;
+  color: $light;
+  padding-top: 18px;
+  padding-bottom: 56px;
+  @include mq(desktop) {
+    padding-top: 102px;
+    padding-bottom: 156px;
+  }
+
+
+  &__copy {
+    &__series {
+      display: inline-block;
+      background-color: $light;
+      color: $red;
+      border: 1px solid $black;
+      padding: 6px 16px 9px 41px;
+      position: relative;
+      z-index: 30;
+      img {
+        display: inline-block;
+        width: 24px;
+        height: auto;
+        position: absolute;
+        top: 5px;
+        left: 10px;
+      }
+      span {
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 18px;
+      }
+      @include mq(desktop) {
+        padding: 8px 16px 10px 52px;
+        img {
+          width: 29px;
+          top: 8px;
+          left: 12px;
+        }
+        span {
+          font-size: 24px;
+          line-height: 24px;
+        }
+      }
+    }
+
+    &__headline {
+      background-color: $red;
+      color: $light;
+      border: 1px solid $black;
+      position: relative;
+      z-index: 20;
+      font-size: 38px;
+      line-height: 42px;
+      font-family: "Guardian Titlepiece", "Guardian Headline Full", "Guardian Headline", "Guardian Egyptian Web", Georgia, serif !important;
+      padding: 9px 15px;
+      margin-left: -5px;
+      margin-top: -9px;
+      max-width: 480px;
+      @include mq(desktop) {
+        width: 820px;
+        max-width: none;
+        font-size: 64px;
+        line-height: 64px;
+        padding: 22px 20px 38px;
+        margin-left: -20px;
+        margin-top: -16px
+      }
+    }
+
+    &__standfirst {
+      font-weight: 200;
+      background-color: $light;
+      color: $black;
+      border: 1px solid $black;
+      position: relative;
+      z-index: 10;
+      font-size: 20px;
+      line-height: 24px;
+      padding: 9px 9px 12px;
+      margin-top: -6px;
+      margin-right: 40px;
+      max-width: 440px;
+      @include mq(desktop) {
+        font-size: 20px;
+        line-height: 28px;
+        margin-left: 160px;
+        width: 480px;
+        max-width: none;
+        padding-right: 80px;
+        font-weight: 400;
+      }
+    }
+    @include mq(leftCol) {
+      margin-left: 160px;
+    }
+    @include mq(wide) {
+      margin-left: 240px;
+    }
+  }
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: url(https://uploads.guim.co.uk/2019/12/09/catherine-texture-2700.jpg);
+    background-size: 1800px;
+    background-position: 900px 900px;
+    background-repeat: repeat;
+  }
+}

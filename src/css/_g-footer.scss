@@ -1,0 +1,12 @@
+.is-immersive-interactive .l-footer {
+  display: block;
+  .subnav {
+    background-color: $light;
+    .gs-container {
+      border-color: $black;
+    }
+  }
+  .js-footer__email-container {
+    display: none;
+  }
+}

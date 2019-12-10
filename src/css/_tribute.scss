@@ -1,0 +1,195 @@
+.tribute {
+  margin: 32px 0 76px;
+  position: relative;
+  @include mq(leftCol) {
+    margin-left: 160px;
+  }
+
+  @include mq(wide) {
+    margin-left: 220px;
+  }
+
+  .box {
+    background-color: $light;
+    color: $black;
+    border: 1px solid $black;
+  }
+
+  &__heading {
+    font-family: "Guardian Headline", "Guardian Egyptian Web", Georgia,serif;
+    position: relative;
+
+    .name,
+    .location {
+      display: block;
+      padding: 6px 32px 12px 10px;
+      font-size: 24px;
+      line-height: 24px;
+    }
+    .name {
+      color: $red;
+      font-weight: 600;
+      width: 36vw;
+    }
+    .location {
+      margin-left: 10px;
+      margin-top: -8px;
+      width: 42vw;
+      padding-bottom: 24px;
+    }
+    @include mq(tablet) {
+      margin-left: 50px;;
+      .name,
+      .location {
+        display: inline-block;
+        width: auto;
+        padding: 6px 48px 18px 10px;
+      }
+      .location {
+        margin: 0;
+        position: relative;
+        bottom: 8px;
+        right: 16px;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    position: absolute;
+    left: 53vw;
+    right: 0;
+    bottom: 30px;
+    top: -32px;
+    z-index: -1;
+    @include mq(tablet) {
+      left: auto;
+      width: 320px;
+    }
+    @include mq(desktop) {
+      right: 140px;
+      max-height: 180px;
+    }
+    @include mq(leftCol) {
+      left: -160px;
+      top: 10px;
+      bottom: -6px;
+      right: auto;
+    }
+    @include mq(wide) {
+      left: -220px;
+      width: 260px;
+    }
+    &[data-style='generic'] {
+      top: -12px;
+      background-image: url(https://uploads.guim.co.uk/2019/12/09/aimee-texture-2000.jpg);
+      background-repeat: repeat;
+      background-size: 1500px;
+    }
+    &[data-style='large'] {
+
+    }
+    &[data-style='small'] {
+      left: 67vw;
+      top: 12px;
+    }
+    &__img {
+      img {
+        width: 100%;
+        filter: grayscale(100%) contrast(1.33);
+      }
+    }
+  }
+  &__story {
+    padding: 9px 10px 32px;
+    position: relative;
+    margin-top: -12px;
+    max-width: 660px;
+    .intro {
+
+    }
+    .more {
+      display: none;
+      &__inner {
+
+      }
+      &__submitter,
+      &__image-credit {
+        font-style: italic;
+      }
+
+      &__expand-toggle {
+        border: 1px solid currentColor;
+        color: $black;
+        background-color: $light;
+        display: block;
+        width: 108px;
+        font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+        font-size: 15px;
+        line-height: 18px;
+        cursor: pointer;
+        position: absolute;
+        bottom: -21px;
+        line-height: 40px;
+        padding-bottom: 2px;
+        padding-left: 32px;
+        left: 80px;
+        &:hover {
+          color: $red;
+        }
+        .close {
+          display: none;
+          i:after {
+            display: none;
+          }
+        }
+        i {
+          position: absolute;
+          left: 8px;
+          top: 12px;
+          width: 18px;
+          height: 18px;
+          border-radius: 100%;
+          background-color: currentColor;
+          &:before,
+          &:after {
+            content: '';
+            background-color: #fff;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+          }
+          &:before {
+            width: 9px;
+            height: 1px;
+          }
+          &:after {
+            width: 1px;
+            height: 9px;
+          }
+        }
+      }
+    }
+
+  }
+
+  &.expanded {
+    .tribute__story {
+      padding-bottom: 48px;
+    }
+    .more {
+      display: block;
+      &__expand-toggle {
+        .close {
+          display: block;
+        }
+        .open {
+          display: none;
+        }
+      }
+
+    }
+  }
+
+}
