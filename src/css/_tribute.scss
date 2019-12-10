@@ -4,9 +4,8 @@
   @include mq(leftCol) {
     margin-left: 160px;
   }
-
   @include mq(wide) {
-    margin-left: 220px;
+    margin-left: 240px;
   }
 
   .box {
@@ -42,14 +41,40 @@
       z-index: -1;
       margin-right: 20px;
       min-height: 120px;
+      @include mq(tablet) {
+        position: absolute;
+        margin: 0;
+        right: 0;
+        top: 0;
+      }
       &[data-style='generic'] {
         background-image: url(https://uploads.guim.co.uk/2019/12/09/aimee-texture-2000.jpg);
         background-repeat: repeat;
         background-size: 2000px 2000px;
+        @include mq(tablet) {
+          width: 220px;
+          margin-right: 36px;
+          margin-top: 12px;
+          min-height: 100px;
+        }
+        @include mq(desktop) {
+          width: 240px;
+          margin-right: 55px;
+        }
       }
       &[data-style='large'] {
         max-width: 280px;
         margin-left: auto;
+        @include mq(tablet) {
+          width: 180px;
+          margin-right: -4px;
+          margin-top: -24px;
+        }
+        @include mq(desktop) {
+          width: 220px;
+          margin-right: 55px;
+          margin-top: -56px;
+        }
       }
       &[data-style='small'] {
         margin-left: 200px;
@@ -59,11 +84,13 @@
           margin-left: auto;
         }
         @include mq(tablet) {
-          position: absolute;
-          margin: 0;
-          right: 0;
-          top: 0;
           width: 140px;
+          margin-top: 0;
+          margin-right: 36px;
+        }
+        @include mq(desktop) {
+          width: 150px;
+          margin-right: 130px;
         }
       }
       img {
@@ -71,6 +98,39 @@
         filter: grayscale(100%) contrast(1.1);
       }
 
+      &[data-style='large'],
+      &[data-style='small'] {
+        @include mq(tablet) {
+          // z-index: 20;
+        }
+      }
+
+      // Colouring effect
+      // &[data-style='large'],
+      // &[data-style='small'] {
+      //   &:before,
+      //   &:after {
+      //     content: '';
+      //     display: block;
+      //     width: 100%;
+      //     height: 100%;
+      //     position: absolute;
+      //     top: 0;
+      //     left: 0;
+      //     right: 0;
+      //     bottom: 0;
+      //   }
+
+      //   &:before {
+      //     background-color: $light;
+      //     mix-blend-mode: darken;
+      //   }
+
+      //   &:after {
+      //     background-color: #002F48;
+      //     mix-blend-mode: lighten;
+      //   }
+      // }
     }
     @include mq(tablet) {
       margin-left: 50px;;
@@ -89,55 +149,23 @@
     }
   }
 
-  // &__image {
-  //   display: block;
-  //   position: absolute;
-  //   left: 53vw;
-  //   right: 0;
-  //   bottom: 30px;
-  //   top: -32px;
-  //   z-index: -1;
-  //   @include mq(tablet) {
-  //     left: auto;
-  //     width: 320px;
-  //   }
-  //   @include mq(desktop) {
-  //     right: 140px;
-  //     max-height: 180px;
-  //   }
-  //   @include mq(leftCol) {
-  //     left: -160px;
-  //     top: 10px;
-  //     bottom: -6px;
-  //     right: auto;
-  //   }
-  //   @include mq(wide) {
-  //     left: -220px;
-  //     width: 260px;
-  //   }
-  //   &[data-style='generic'] {
-  //     top: -12px;
-  //   }
-  //   &[data-style='large'] {
-
-  //   }
-  //   &[data-style='small'] {
-  //     left: 67vw;
-  //     top: 12px;
-  //   }
-  //   &__img {
-  //     img {
-  //       width: 100%;
-  //       filter: grayscale(100%) contrast(1.33);
-  //     }
-  //   }
-  // }
-
   &__story {
     padding: 9px 10px 32px;
     position: relative;
     margin-top: -12px;
     max-width: 660px;
+    @include mq(tablet) {
+      padding-right: 40px;
+      max-width: none;
+      width: 480px;
+      z-index: 10;
+    }
+    @include mq(desktop) {
+      width: 620px;
+      padding-right: 40px;
+      margin-bottom: 120px;
+    }
+
     .intro {
 
     }

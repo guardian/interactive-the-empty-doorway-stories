@@ -1,5 +1,7 @@
 .tributes {
-
+  .tributes__wrapper:empty {
+    height: 100vh;
+  }
   .four-lines {
     margin: 0 -10px;
     @include mq(mobileLandscape) {
@@ -21,7 +23,7 @@
         content: '';
         position: absolute;
         top: 0px;
-        bottom: -64px;
+        bottom: -76px;
         width: 1px;
         background-color: $black;
       }

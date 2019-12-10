@@ -49,7 +49,7 @@
       @include mq(tablet) {
         right: -100px;
       }
-      @include mq(tablet) {
+      @include mq(desktop) {
         right: -340px;
       }
       @include mq(leftCol) {

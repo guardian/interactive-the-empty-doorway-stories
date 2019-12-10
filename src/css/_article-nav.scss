@@ -56,6 +56,16 @@
     font-family: "Guardian Headline", "Guardian Egyptian Web", Georgia,serif;
     font-weight: 600;
 
+    &:empty {
+      height: 84px;
+      @include mq(tablet) {
+        height: 42px;
+      }
+      @include mq(desktop) {
+        height: 59px;
+      }
+    }
+
     @include mq(leftCol) {
       margin-left: 160px;
     }
