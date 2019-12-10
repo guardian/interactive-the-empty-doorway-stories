@@ -9,6 +9,10 @@
     padding-top: 102px;
     padding-bottom: 156px;
   }
+  @include mq(leftCol) {
+    padding-top: 136px;
+    padding-bottom: 196px;
+  }
 
 
   &__copy {
