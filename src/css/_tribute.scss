@@ -61,6 +61,10 @@
           width: 240px;
           margin-right: 55px;
         }
+        @include mq(leftCol) {
+          left: -210px;
+          right: auto;
+        }
       }
       &[data-style='large'] {
         max-width: 280px;
@@ -74,6 +78,17 @@
           width: 220px;
           margin-right: 55px;
           margin-top: -56px;
+        }
+        @include mq(leftCol) {
+          left: -210px;
+          right: auto;
+          width: 170px;
+          margin-top: -18px;
+        }
+        @include mq(wide) {
+          left: -260px;
+          width: 220px;
+          margin-top: -18px;
         }
       }
       &[data-style='small'] {
@@ -91,6 +106,15 @@
         @include mq(desktop) {
           width: 150px;
           margin-right: 130px;
+        }
+        @include mq(leftCol) {
+          left: -170px;
+          right: auto;
+          width: 130px;
+        }
+        @include mq(wide) {
+          left: -180px;
+          width: 140px;
         }
       }
       img {
