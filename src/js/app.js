@@ -33,14 +33,14 @@ function getScrollOffset(el) {
 }
 
 function scrollTo(to) {
-  let duration = 600;
+  let duration = 1200;
   const element = document.scrollingElement;
   const start = (element && element.scrollTop) || window.pageYOffset,
     change = to - start,
     increment = 20;
   let currentTime = 0;
 
-  duration = Math.max(240, (Math.sqrt(Math.abs(change)) * 4));
+  duration = Math.min(2000, Math.max(800, (Math.sqrt(Math.abs(change)) * 20)));
 
   const animateScroll = function () {
     currentTime += increment;
@@ -177,6 +177,7 @@ function buildTributes(tributes) {
   tributes.forEach(function (t) {
     let newTribute = document.createElement('div');
     newTribute.classList.add('tribute');
+    newTribute.dataset.status = 'below';
     newTribute.dataset.region = stringToHTMLClass(t.Region);
 
     let tributePhotoHTML = '';
