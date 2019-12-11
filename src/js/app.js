@@ -1,6 +1,6 @@
 // js code here
 
-loadJSON("https://interactive.guim.co.uk/docsdata-test/1oyBV1VukfZ9X5lnN8wQloEmlYox4TkJNUSMmAqVh1jw.json", function (data) {
+loadJSON(jsonLink(), function (data) {
 
   buildRegions(data.sheets.Regions);
   buildTributes(data.sheets.Submissions);
@@ -8,6 +8,14 @@ loadJSON("https://interactive.guim.co.uk/docsdata-test/1oyBV1VukfZ9X5lnN8wQloEml
   bindNavClickEvents();
 
 });
+
+function jsonLink() {
+  if (window.location.hostname == 'preview.gutools.co.uk') {
+    return "https://interactive.guim.co.uk/docsdata-test/1oyBV1VukfZ9X5lnN8wQloEmlYox4TkJNUSMmAqVh1jw.json";
+  } else {
+    return "https://interactive.guim.co.uk/docsdata/1oyBV1VukfZ9X5lnN8wQloEmlYox4TkJNUSMmAqVh1jw.json";
+  }
+}
 
 function bindNavClickEvents() {
   let navSections = document.querySelectorAll('.article-nav__regions__region');
@@ -191,7 +199,7 @@ function buildTributes(tributes) {
 
     newTribute.innerHTML = "<div class='tribute__heading'><div class='name box'>" + t.Name + "</div><div class='location box'>" + t.Location + "</div>" + tributePhotoHTML + "</div>"
 
-    newTribute.innerHTML += "<div class='tribute__story box'><div class='intro'><p>" + t.Intro + "</p></div><div class='more'><div class='more__inner'><p>" + t.More.replace(/\n/g, '</p><p>') + "</p></div>"
+    newTribute.innerHTML += "<div class='tribute__story box'><div class='intro'><p>" + t.Intro + "</p></div><div class='more'><div class='more__inner'><p>" + t.More.replace(/\*\*(\S(.*?\S)?)\*\*/gm, '<strong>$1</strong>').replace(/\*(\S(.*?\S)?)\*/gm, '<em>$1</em>').replace(/\n/g, '</p><p>') + "</p></div>"
       + (t.PhotoCredit != '' ? "<div class='more__image-credit'>Photo by " + t.PhotoCredit + "</div>" : "")
       + "<div class='more__submitter'>" + t.Submitter + "</div></div><div class='more__expand-toggle'><span class='open'><i></i>Read more</span><span class='close'><i></i>Close</span></div></div>"
 
