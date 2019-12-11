@@ -23,7 +23,7 @@
         right: 0;
       }
       @include mq(leftCol) {
-        width: 170px;
+        width: 170px !important;
       }
       @include mq(leftCol) {
         width: 240px;
